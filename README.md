@@ -14,7 +14,7 @@ Based on AWS best practices (SAA-C03), these labs cover:
 * **Batch & One-off Jobs:** Running standalone Fargate tasks for migrations and processing.
 * **Image Management:** Using Amazon ECR to securely store and version Docker images.
 * **Load Balancing:** Distributing traffic to containers via ALB with IP-based targets.
-* **Service Orchestration:** (Upcoming) Maintaining desired task counts and scaling.
+* **Service Orchestration:** Deploying long-running ECS Services with self-healing and ALB integration.
 
 ## ⚙️ Prerequisites
 
@@ -45,3 +45,4 @@ Based on AWS best practices (SAA-C03), these labs cover:
 3. [Lab 3: ECS Cluster & Task Definitions (awsvpc mode)](./labs/lab3-ecs-task-definitions/README.md)
 4. [Lab 4: Running Standalone Tasks (Fargate)](./labs/lab4-ecs-standalone-tasks/README.md)
 5. [Lab 5: Application Load Balancer Integration (IP Targets)](./labs/lab5-ecs-alb-integration/README.md)
+6. [Lab 6: ECS Long-Running Services](./labs/lab6-ecs-services/README.md)
