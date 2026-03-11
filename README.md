@@ -13,8 +13,8 @@ Based on AWS best practices (SAA-C03), these labs cover:
 * **Task Definitions:** Defining blueprints using the `awsvpc` network mode.
 * **Batch & One-off Jobs:** Running standalone Fargate tasks for migrations and processing.
 * **Image Management:** Using Amazon ECR to securely store and version Docker images.
+* **Load Balancing:** Distributing traffic to containers via ALB with IP-based targets.
 * **Service Orchestration:** (Upcoming) Maintaining desired task counts and scaling.
-* **Load Balancing:** (Upcoming) Distributing traffic to containers via ALB.
 
 ## ⚙️ Prerequisites
 
@@ -37,10 +37,11 @@ Based on AWS best practices (SAA-C03), these labs cover:
 > [!IMPORTANT]
 > **Cumulative Architecture:** These labs are designed as a cumulative scenario. You are building an evolving containerized infrastructure.
 >
-> **Session Persistence:** These labs rely on bash variables (like `$VPC_ID`, `$TASK_SG`, `$TASK_DEF_ARN`, etc.). Run all commands in the same terminal session to maintain context.
+> **Session Persistence:** These labs rely on bash variables (like `$VPC_ID`, `$TASK_SG`, `$TASK_DEF_ARN`, `$TG_ARN`, etc.). Run all commands in the same terminal session to maintain context.
 
 ## 📚 Labs Index
 1. [Lab 1: Networking Foundation & ECR Registry](./labs/lab1-ecs-foundation/README.md)
 2. [Lab 2: IAM Role Separation (Execution vs. Task Roles)](./labs/lab2-ecs-iam-roles/README.md)
 3. [Lab 3: ECS Cluster & Task Definitions (awsvpc mode)](./labs/lab3-ecs-task-definitions/README.md)
 4. [Lab 4: Running Standalone Tasks (Fargate)](./labs/lab4-ecs-standalone-tasks/README.md)
+5. [Lab 5: Application Load Balancer Integration (IP Targets)](./labs/lab5-ecs-alb-integration/README.md)
