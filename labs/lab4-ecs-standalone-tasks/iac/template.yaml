@@ -1,0 +1,4 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  EcsCluster: { Type: 'AWS::ECS::Cluster', Properties: { ClusterName: FargateCluster } }
+  TaskDefinition: { Type: 'AWS::ECS::TaskDefinition', Properties: { Family: web-app } }

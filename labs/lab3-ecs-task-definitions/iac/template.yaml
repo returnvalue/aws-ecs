@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  ExecRoleArn: {Type: String}
+  TaskRoleArn: {Type: String}
+Resources:
+  EcsCluster:
+    Type: 'AWS::ECS::Cluster'
+    Properties: {ClusterName: FargateCluster}
+  TaskDefinition:
+    Type: 'AWS::ECS::TaskDefinition'
+    Properties:
+      Family: web-app
+      NetworkMode: awsvpc
+      RequiresCompatibilities: [FARGATE]
+      Cpu: '256'
+      Memory: '512'
+      ExecutionRoleArn: !Ref ExecRoleArn
+      TaskRoleArn: !Ref TaskRoleArn
+      ContainerDefinitions:
+        - Name: nginx-container
+          Image: nginx:latest
+          Essential: true
+          PortMappings: [{ContainerPort: 80, HostPort: 80, Protocol: tcp}]
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: /ecs/web-app
+              awslogs-region: us-east-1
+              awslogs-stream-prefix: ecs

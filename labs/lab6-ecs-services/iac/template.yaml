@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  ClusterName: {Type: String}
+  TaskDefArn: {Type: String}
+  SubnetIds: {Type: 'List<AWS::EC2::Subnet::Id>'}
+  SgId: {Type: String}
+  TgArn: {Type: String}
+Resources:
+  WebAppService:
+    Type: 'AWS::ECS::Service'
+    Properties:
+      ServiceName: WebAppService
+      Cluster: !Ref ClusterName
+      TaskDefinition: !Ref TaskDefArn
+      DesiredCount: 2
+      LaunchType: FARGATE
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          Subnets: !Ref SubnetIds
+          SecurityGroups: [!Ref SgId]
+          AssignPublicIp: ENABLED
+      LoadBalancers:
+        - TargetGroupArn: !Ref TgArn
+          ContainerName: nginx-container
+          ContainerPort: 80
