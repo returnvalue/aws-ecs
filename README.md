@@ -11,6 +11,7 @@ Based on AWS best practices (SAA-C03), these labs cover:
 * **IAM Security:** Implementing strict separation between Execution and Task roles.
 * **Cluster Management:** Provisioning serverless ECS Fargate clusters.
 * **Task Definitions:** Defining blueprints using the `awsvpc` network mode.
+* **Batch & One-off Jobs:** Running standalone Fargate tasks for migrations and processing.
 * **Image Management:** Using Amazon ECR to securely store and version Docker images.
 * **Service Orchestration:** (Upcoming) Maintaining desired task counts and scaling.
 * **Load Balancing:** (Upcoming) Distributing traffic to containers via ALB.
@@ -42,3 +43,4 @@ Based on AWS best practices (SAA-C03), these labs cover:
 1. [Lab 1: Networking Foundation & ECR Registry](./labs/lab1-ecs-foundation/README.md)
 2. [Lab 2: IAM Role Separation (Execution vs. Task Roles)](./labs/lab2-ecs-iam-roles/README.md)
 3. [Lab 3: ECS Cluster & Task Definitions (awsvpc mode)](./labs/lab3-ecs-task-definitions/README.md)
+4. [Lab 4: Running Standalone Tasks (Fargate)](./labs/lab4-ecs-standalone-tasks/README.md)
