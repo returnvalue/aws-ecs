@@ -15,6 +15,7 @@ Based on AWS best practices (SAA-C03), these labs cover:
 * **Image Management:** Using Amazon ECR to securely store and version Docker images.
 * **Load Balancing:** Distributing traffic to containers via ALB with IP-based targets.
 * **Service Orchestration:** Deploying long-running ECS Services with self-healing and ALB integration.
+* **Service Auto Scaling:** Implementing dynamic target-tracking scaling based on demand.
 
 ## ⚙️ Prerequisites
 
@@ -46,3 +47,4 @@ Based on AWS best practices (SAA-C03), these labs cover:
 4. [Lab 4: Running Standalone Tasks (Fargate)](./labs/lab4-ecs-standalone-tasks/README.md)
 5. [Lab 5: Application Load Balancer Integration (IP Targets)](./labs/lab5-ecs-alb-integration/README.md)
 6. [Lab 6: ECS Long-Running Services](./labs/lab6-ecs-services/README.md)
+7. [Lab 7: Service Auto Scaling (Target Tracking)](./labs/lab7-ecs-auto-scaling/README.md)
