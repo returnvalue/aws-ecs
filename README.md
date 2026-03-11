@@ -8,6 +8,7 @@ This repository contains hands-on labs demonstrating core Amazon ECS concepts, f
 ## 🎯 Architecture Goals & Use Cases Covered
 Based on AWS best practices (SAA-C03), these labs cover:
 * **Networking Foundation:** Designing multi-AZ VPCs for container reliability.
+* **IAM Security:** Implementing strict separation between Execution and Task roles.
 * **Image Management:** Using Amazon ECR to securely store and version Docker images.
 * **Cluster Management:** (Upcoming) Provisioning ECS clusters.
 * **Task Definitions:** (Upcoming) Defining blueprints for containerized applications.
@@ -35,7 +36,8 @@ Based on AWS best practices (SAA-C03), these labs cover:
 > [!IMPORTANT]
 > **Cumulative Architecture:** These labs are designed as a cumulative scenario. You are building an evolving containerized infrastructure.
 >
-> **Session Persistence:** These labs rely on bash variables (like `$VPC_ID`, `$TASK_SG`, etc.). Run all commands in the same terminal session to maintain context.
+> **Session Persistence:** These labs rely on bash variables (like `$VPC_ID`, `$TASK_SG`, `$EXEC_ROLE_ARN`, etc.). Run all commands in the same terminal session to maintain context.
 
 ## 📚 Labs Index
 1. [Lab 1: Networking Foundation & ECR Registry](./labs/lab1-ecs-foundation/README.md)
+2. [Lab 2: IAM Role Separation (Execution vs. Task Roles)](./labs/lab2-ecs-iam-roles/README.md)
