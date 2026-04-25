@@ -5,6 +5,7 @@
 ```bash
 # 1. Create the ECS Cluster
 awslocal ecs create-cluster --cluster-name FargateCluster
+aws ecs create-cluster --cluster-name FargateCluster
 
 # 2. Create the Task Definition JSON
 cat <<EOF > task-def.json
@@ -37,6 +38,7 @@ EOF
 
 # 3. Register the Task Definition
 TASK_DEF_ARN=$(awslocal ecs register-task-definition --cli-input-json file://task-def.json --query 'taskDefinition.taskDefinitionArn' --output text)
+TASK_DEF_ARN=$(aws ecs register-task-definition --cli-input-json file://task-def.json --query 'taskDefinition.taskDefinitionArn' --output text)
 ```
 
 ## 🧠 Key Concepts & Importance
@@ -53,3 +55,45 @@ TASK_DEF_ARN=$(awslocal ecs register-task-definition --cli-input-json file://tas
     - `--cluster-name`: The name of the cluster.
 - `ecs register-task-definition`: Registers a new task definition revision.
     - `--cli-input-json`: Path to the JSON file containing the task definition.
+
+---
+
+💡 **Pro Tip: Using `aws` instead of `awslocal`**
+
+If you prefer using the standard `aws` CLI without the `awslocal` wrapper or repeating the `--endpoint-url` flag, you can configure a dedicated profile in your AWS config files.
+
+### 1. Configure your Profile
+Add the following to your `~/.aws/config` file:
+```ini
+[profile localstack]
+region = us-east-1
+output = json
+# This line redirects all commands for this profile to LocalStack
+endpoint_url = http://localhost:4566
+```
+
+Add matching dummy credentials to your `~/.aws/credentials` file:
+```ini
+[localstack]
+aws_access_key_id = test
+aws_secret_access_key = test
+```
+
+### 2. Use it in your Terminal
+You can now run commands in two ways:
+
+**Option A: Pass the profile flag**
+```bash
+aws iam create-user --user-name DevUser --profile localstack
+```
+
+**Option B: Set an environment variable (Recommended)**
+Set your profile once in your session, and all subsequent `aws` commands will automatically target LocalStack:
+```bash
+export AWS_PROFILE=localstack
+aws iam create-user --user-name DevUser
+```
+
+### Why this works
+- **Precedence**: The AWS CLI (v2) supports a global `endpoint_url` setting within a profile. When this is set, the CLI automatically redirects all API calls for that profile to your local container instead of the real AWS cloud.
+- **Convenience**: This allows you to use the standard documentation commands exactly as written, which is helpful if you are copy-pasting examples from AWS labs or tutorials.
