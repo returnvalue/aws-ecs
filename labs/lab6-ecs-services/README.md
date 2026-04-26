@@ -1,7 +1,6 @@
 # Lab 6: ECS Long-Running Services
 
 **Goal:** Deploy the application as an ECS Service. Services automatically maintain a desired number of tasks, restarting them if they fail, and registering them with the ALB.
-
 ```bash
 # Create the ECS Service tied to the ALB
 awslocal ecs create-service \

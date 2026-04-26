@@ -1,7 +1,6 @@
 # Lab 2: IAM Role Separation (Execution vs. Task Roles)
 
 **Goal:** Security best practices require strict IAM separation. The Execution Role allows ECS to pull images and push logs. The Task Role allows your application code to access AWS services (like S3).
-
 ```bash
 # 1. Create the Trust Policy for ECS Tasks
 cat <<EOF > ecs-trust.json

@@ -1,7 +1,6 @@
 # Lab 4: Running Standalone Tasks (Fargate)
 
 **Goal:** Execute a one-off, serverless task. This pattern is ideal for batch jobs, database migrations, or scheduled cron jobs.
-
 ```bash
 # Run a standalone task directly into our VPC
 awslocal ecs run-task \

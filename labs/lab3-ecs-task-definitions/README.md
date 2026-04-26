@@ -1,7 +1,6 @@
 # Lab 3: ECS Cluster & Task Definitions (awsvpc mode)
 
 **Goal:** Create a serverless Fargate cluster and define the blueprint (Task Definition) for our application using the `awsvpc` network mode.
-
 ```bash
 # 1. Create the ECS Cluster
 awslocal ecs create-cluster --cluster-name FargateCluster

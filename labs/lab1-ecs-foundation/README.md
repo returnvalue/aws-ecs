@@ -1,7 +1,6 @@
 # Lab 1: Networking Foundation & ECR Registry
 
 **Goal:** Create a multi-AZ VPC for high availability and provision an Elastic Container Registry (ECR) to securely store our Docker images.
-
 ```bash
 # 1. Create VPC and two Subnets
 VPC_ID=$(awslocal ec2 create-vpc --cidr-block 10.0.0.0/16 --query 'Vpc.VpcId' --output text)

@@ -1,7 +1,6 @@
 # Lab 7: Service Auto Scaling (Target Tracking)
 
 **Goal:** Handle unpredictable web traffic automatically. We will register the ECS service with Application Auto Scaling and apply a policy to scale tasks out/in based on average CPU utilization.
-
 ```bash
 # 1. Register the ECS Service as a Scalable Target (Min 2, Max 10 tasks)
 awslocal application-autoscaling register-scalable-target \

@@ -1,7 +1,6 @@
 # Lab 5: Application Load Balancer Integration (IP Targets)
 
 **Goal:** Prepare for a highly available web service. Because we use `awsvpc` network mode, the ALB Target Group must be configured with `TargetType=ip` (not instance IDs) to correctly route traffic to individual task ENIs.
-
 ```bash
 # 1. Create the ALB
 ALB_ARN=$(awslocal elbv2 create-load-balancer \
